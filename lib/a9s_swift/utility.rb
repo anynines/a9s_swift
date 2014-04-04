@@ -18,7 +18,7 @@ class Anynines::Swift::Utility
     raise "Paperclip wasn't found in your environment! Please verify that paperclip is included within your Gemfile and loaded correctly." if defined?(Paperclip).nil?
     
     opts = initialize_options options
-    create_new_bucket(bucket_name, opts[:fog_public])
+    create_new_bucket(image_bucket_name, opts[:fog_public])
     
     fog_hash = fog_credentials_hash
     # configure paperclip to use the credentials provided by the anynines environment
@@ -50,7 +50,7 @@ class Anynines::Swift::Utility
     raise "CarrierWave wasn't found in your environment! Please verify that carrierwave is included within your Gemfile and loaded correctly." if defined?(CarrierWave).nil?
     
     opts = initialize_options options
-    create_new_bucket(bucket_name, opts[:fog_public])
+    create_new_bucket(image_bucket_name, opts[:fog_public])
     
     CarrierWave.configure do |config|
       config.fog_credentials = fog_credentials_hash
