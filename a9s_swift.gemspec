@@ -16,7 +16,22 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md"
   ]
-  s.files = `git ls-files`.split($/)
+  s.files = [
+    ".document",
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE.txt",
+    "README.md",
+    "Rakefile",
+    "VERSION",
+    "a9s_swift.gemspec",
+    "examples/rails_carrierwave_initializer.rb",
+    "examples/rails_paperclip_initializer.rb",
+    "lib/a9s_swift.rb",
+    "lib/a9s_swift/utility.rb",
+    "test/helper.rb",
+    "test/test_a9s_swift.rb"
+  ]
   s.homepage = "http://github.com/anynines/a9s_swift"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
@@ -32,14 +47,12 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
-      s.add_dependency(%q<fog>)
     else
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
       s.add_dependency(%q<simplecov>, [">= 0"])
-      s.add_dependency(%q<fog>)
     end
   else
     s.add_dependency(%q<shoulda>, [">= 0"])
@@ -47,7 +60,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
     s.add_dependency(%q<simplecov>, [">= 0"])
-    s.add_dependency(%q<fog>)
   end
 end
 
