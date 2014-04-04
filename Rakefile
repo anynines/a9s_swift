@@ -15,11 +15,11 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "a9s_swift"
-  gem.homepage = "http://github.com/julweber/a9s_swift"
+  gem.homepage = "http://github.com/anynines/a9s_swift"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "jweber@avarteq.de"
+  gem.summary = %Q{anynines.com swift service utility library for simplifying app acces to the a9s swift service.}
+  gem.description = %Q{anynines.com swift service utility library for simplifying app acces to the a9s swift service.}
+  gem.email = "jweber@anynines.com"
   gem.authors = ["Julian Weber"]
   # dependencies defined in Gemfile
 end
@@ -49,3 +49,10 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+desc 'Run an irb console session'
+task :irb_console do
+  exec("irb -r ./lib/a9s_swift.rb")
+end
+
+task irb: :irb_console
