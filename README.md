@@ -1,6 +1,6 @@
 = a9s_swift
 
-a9s_swift is a small helper gem to ease up the usage of the anyines.com swift service within your applications.
+a9s_swift is a small utility gem to ease up the usage of the anyines.com swift service within your applications.
 It enables a one-line configuration of the following libraries:
 
 * paperclip
