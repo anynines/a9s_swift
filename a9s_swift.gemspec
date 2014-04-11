@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julian Weber"]
-  s.date = "2014-04-08"
+  s.date = "2014-04-11"
   s.description = "anynines.com swift service utility library for simplifying app acces to the a9s swift service."
   s.email = "jweber@anynines.com"
   s.extra_rdoc_files = [
