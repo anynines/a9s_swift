@@ -55,6 +55,7 @@ class Anynines::Swift::Utility
     CarrierWave.configure do |config|
       config.fog_credentials = fog_credentials_hash
 
+      config.storage = :fog
       config.fog_directory  = image_bucket_name
       config.fog_public     = opts[:fog_public]                                   # optional, defaults to true
     end
