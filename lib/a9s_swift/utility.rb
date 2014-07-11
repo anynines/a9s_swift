@@ -76,7 +76,8 @@ class Anynines::Swift::Utility
        :hp_tenant_id => swift_service["credentials"]["tenant_id"],
        :hp_auth_uri => swift_service["credentials"]["authentication_uri"],
        :hp_use_upass_auth_style => true,
-       :hp_avl_zone => swift_service["credentials"]["availability_zone"]
+       :hp_avl_zone => swift_service["credentials"]["availability_zone"],
+       :os_account_meta_temp_url_key => swift_service["credentials"]["account_meta_key"]
     }
   end
   
