@@ -56,3 +56,4 @@ task :irb_console do
 end
 
 task irb: :irb_console
+task c: :irb_console
