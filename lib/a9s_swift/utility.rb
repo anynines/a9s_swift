@@ -19,13 +19,14 @@ class Anynines::Swift::Utility
 
     opts = initialize_options options
     create_new_bucket(image_bucket_name, opts[:fog_public], provider)
+    fog_hash = self.fog_credentials_hash(provider)
 
     # configure paperclip to use the credentials provided by the anynines environment
     Paperclip::Attachment.default_options.update(
       {
         :path => ":class/:id/:attachment/:style/img_:fingerprint",
         :storage => :fog,
-        :fog_credentials => self.fog_credentials_hash(provider),
+        :fog_credentials => fog_hash,
         :fog_directory => image_bucket_name,
         :fog_public => opts[:fog_public],
         :fog_host => "#{SWIFT_HOST}/v1/AUTH_#{fog_hash[:hp_tenant_id]}/#{image_bucket_name}"
