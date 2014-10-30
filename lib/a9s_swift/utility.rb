@@ -6,7 +6,7 @@ class Anynines::Swift::Utility
 
   # Returns a fog storage connection to the swift service
   # @return [Fog::Storage] a fog storage connection
-  def self.fog_connection(provider = "hp")
+  def self.fog_connection(provider = "openstack")
     Fog::Storage.new fog_credentials_hash(provider)
   end
 
@@ -14,7 +14,7 @@ class Anynines::Swift::Utility
   # Creates a bucket with the given name if not already present.
   # @param image_bucket_name [String] the bucket name to use
   # @param options [Hash] a hash of additional options
-  def self.configure_paperclip(image_bucket_name, options = {}, provider = "hp")
+  def self.configure_paperclip(image_bucket_name, options = {}, provider = "openstack")
     raise "Paperclip wasn't found in your environment! Please verify that paperclip is included within your Gemfile and loaded correctly." if defined?(Paperclip).nil?
 
     opts = initialize_options options
@@ -38,7 +38,7 @@ class Anynines::Swift::Utility
   # @param image_bucket_name [String] the bucket name to use
   # @param options [Hash] a hash of additional options
   # @param provider [String] 'hp' or 'openstack'
-  def self.configure_carrierwave(image_bucket_name, options = {}, provider = "hp")
+  def self.configure_carrierwave(image_bucket_name, options = {}, provider = "openstack")
     raise "CarrierWave wasn't found in your environment! Please verify that carrierwave is included within your Gemfile and loaded correctly." if defined?(CarrierWave).nil?
 
     opts = initialize_options options
@@ -55,7 +55,7 @@ class Anynines::Swift::Utility
 
   # Returns a fog compatible credentials hash for the swift service
   # @param provider [String] 'hp' or 'openstack'
-  def self.fog_credentials_hash(provider = "hp")
+  def self.fog_credentials_hash(provider = "openstack")
     provider = provider.downcase
     # parse the VCAP_SERVICES environment variable
     services = JSON.parse(ENV["VCAP_SERVICES"])
@@ -76,7 +76,7 @@ class Anynines::Swift::Utility
   # @param bucket_name [String] a name for the bucket
   # @param public_access [Boolean] should the bucket be publicly accessible?
   # @param provider [String] 'hp' or 'openstack'
-  def self.create_new_bucket(bucket_name, public_access, provider = "hp")
+  def self.create_new_bucket(bucket_name, public_access, provider = "openstack")
     connection = fog_connection provider
     if connection.directories.get(bucket_name).nil?
       puts "The bucket with key=#{bucket_name} wasn't found. Creating bucket with key=#{bucket_name} ."
