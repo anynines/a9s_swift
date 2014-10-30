@@ -10,6 +10,10 @@ class Anynines::Swift::Utility
     Fog::Storage.new fog_credentials_hash(provider)
   end
 
+  def self.get_fog_version
+    Gem.loaded_specs['fog'].version.to_s
+  end
+
   # Sets up paperclip for the usage with the anynines service.
   # Creates a bucket with the given name if not already present.
   # @param image_bucket_name [String] the bucket name to use
@@ -124,7 +128,7 @@ class Anynines::Swift::Utility
   end
 
   def self.fog_credentials_hash_hp_provider(vcap_service_subhash)
-    {
+    hash = {
        :provider => 'HP',
        :hp_access_key => vcap_service_subhash["credentials"]["user_name"],
        :hp_secret_key => vcap_service_subhash["credentials"]["password"],
@@ -134,5 +138,14 @@ class Anynines::Swift::Utility
        :hp_avl_zone => vcap_service_subhash["credentials"]["availability_zone"],
        :os_account_meta_temp_url_key => vcap_service_subhash["credentials"]["account_meta_key"]
     }
+
+    # FIXME: Remove this construct when the temp urls are implemented for the openstack driver
+    # Remove the complete support for the HP provider
+    if get_fog_version == '1.24.0'
+      hash.merge!(hp_service_type: "object-store")
+    else
+      hash.merge!(hp_service_type: "Object Storage")
+    end
+    hash
   end
 end
