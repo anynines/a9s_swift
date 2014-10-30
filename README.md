@@ -25,7 +25,7 @@ It enables a one-line configuration of the following libraries:
 
 ### rails applications with carrierwave or paperclip
 
-Some example initializers are provided in the examples directory. Just copy the according file over to your rails application's app/config/initializers directory and start using the anynines swift service within your live applications. For some usage examples please refer to the [examples directory!](examples) .
+Some example initializers are provided in the examples directory. Just copy the according file over to your rails application's app/config/initializers directory and start using the anynines swift service within your live applications. For some usage examples please refer to the [examples directory](examples) .
 
 Please make sure to bind a swift service instance to your application to enable access to the swift credentials.
 
