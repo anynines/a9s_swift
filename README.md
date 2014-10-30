@@ -15,9 +15,9 @@ It enables a one-line configuration of the following libraries:
 
 ## Installation
 	gem install a9s_swift
-	
+
 	or
-	
+
 	gem 'a9s_swift' -> Gemfile
 	bundle
 
@@ -25,23 +25,23 @@ It enables a one-line configuration of the following libraries:
 
 ### rails applications with carrierwave or paperclip
 
-Some example initializers are provided in the examples directory. Just copy the according file over to your rails application's app/config/initializers directory and start using the anynines swift service within your live applications. 
+Some example initializers are provided in the examples directory. Just copy the according file over to your rails application's app/config/initializers directory and start using the anynines swift service within your live applications. For some usage examples please refer to the [examples directory!](examples) .
 
 Please make sure to bind a swift service instance to your application to enable access to the swift credentials.
 
 ### fog
-	con = Anynines::Swift::Utility.fog_connection # returns a fog connection to the a9s swift service 
+	con = Anynines::Swift::Utility.fog_connection # returns a fog connection to the a9s swift service
 	con.directories
-	
-### paperclip configuration featue
+
+### paperclip configuration feature
 	Anynines::Swift::Utility.configure_paperclip("image_bucket") # create bucket, configure paperclip with a9s swift service
-	
+
 ### carrierwave configuration feature
 	Anynines::Swift::Utility.configure_carrierwave("image_bucket") # create bucket, configure carrierwave with a9s swift service
-	
+
 
 ## Contributing to a9s_swift
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
